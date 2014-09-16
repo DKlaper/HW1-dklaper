@@ -9,9 +9,10 @@
 </collectionReader>
 <casProcessors casPoolSize="1"
 processingUnitThreadCount="1">
-<casProcessor deployment="integrated" name="Baseline" >
+
+<casProcessor deployment="integrated" name="Recognizer" >
 <descriptor>
-<import name="baselineDescriptor"/>
+<import name="lingpipeNERDescriptor"/>
 </descriptor>
 <filter></filter>
 <errorHandling>
@@ -22,7 +23,7 @@ value="100"/>
 </errorHandling>
 </casProcessor>
 
-<casProcessor deployment="integrated" name="Result" >
+<casProcessor deployment="integrated" name="Consumer" >
 <descriptor>
 <import name="evaluationConsumerDescriptor"/>
 </descriptor>
@@ -34,6 +35,7 @@ value="100"/>
 <timeout max="10000"/>
 </errorHandling>
 </casProcessor>
+
 </casProcessors>
 <cpeConfig>
         <numToProcess>-1</numToProcess>
