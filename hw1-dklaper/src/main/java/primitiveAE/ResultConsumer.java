@@ -69,7 +69,7 @@ public class ResultConsumer extends CasConsumer_ImplBase {
 			GeneMention gene = (GeneMention)gmt;
 			
 			String out = getOutString(senID, gene.getBegin(), gene.getEnd(), gene.getMentionText());
-			
+			// write out result
 			try {
 				outstr.write(out);
 				outstr.flush();
@@ -79,6 +79,14 @@ public class ResultConsumer extends CasConsumer_ImplBase {
 		}
 	}
 	
+	/**
+	 * Gets the prescribed output format from the data
+	 * @param senID Id of the sentence
+	 * @param begin Start index non-whitespace
+	 * @param end End index non-whitespace
+	 * @param txt Text of the annotation
+	 * @return the correctly formatted string
+	 */
 	public static String getOutString(String senID, Integer begin, Integer end, String txt)
 	{
 		return senID+"|"+begin.toString()+" "+end.toString()+"|"+txt+"\n";

@@ -36,10 +36,10 @@ public class LingpipeNERAnnotator extends JCasAnnotator_ImplBase {
 		Chunking chunkres = chunker.chunk(text);
 		for(Chunk chunk : chunkres.chunkSet())
 		{
-			// adapt indices
+			// adapt indices to non whitespace
 			int begin = text.substring(0, chunk.start()).replaceAll("\\s", "").length(); 
 			int end = -1+text.substring(0, chunk.end()).replaceAll("\\s", "").length(); 
-			// add mention
+			// add mention to CAS
 			GeneMention mention = new GeneMention(aJCas, begin, end);
 			mention.setMentionText(text.substring(chunk.start(), chunk.end()));
 			mention.addToIndexes();

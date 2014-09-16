@@ -23,7 +23,7 @@ public class EvalMap_Impl implements SharedResourceObject, EvalMap {
 	@Override
 	public void load(DataResource aData) throws ResourceInitializationException {
 
-		try {
+		try { // open file
 			BufferedReader read = new BufferedReader(new InputStreamReader(
 					aData.getInputStream()));
 			String line = read.readLine();
@@ -31,13 +31,14 @@ public class EvalMap_Impl implements SharedResourceObject, EvalMap {
 			while (line != null) {
 				line = line.trim();
 
+				// get id
 				String key = line.split("\\|")[0];
-				// reads the data
+				// make sure set exists
 				if(!evalData.containsKey(key))
 				{
 					evalData.put(key, new HashSet<String>());
 				}
-				
+				// add mention to set
 				evalData.get(key).add(line);
 				
 				line = read.readLine();

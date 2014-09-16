@@ -72,7 +72,7 @@ public class EvaluationConsumer extends CasConsumer_ImplBase {
 				GeneMention gene = (GeneMention)gmt;
 				
 				String out = ResultConsumer.getOutString(senID, gene.getBegin(), gene.getEnd(), gene.getMentionText()).trim();
-				
+				//check each annotation against gold standard
 				if(gold != null && gold.contains(out))
 				{
 					++tp;

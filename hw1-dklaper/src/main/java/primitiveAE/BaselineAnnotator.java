@@ -25,9 +25,11 @@ public class BaselineAnnotator extends JCasAnnotator_ImplBase {
 	public void initialize(UimaContext aContext)
 	{
 		try {
+			// Get the class from the default package and create instance
 			Class<?> cls = Class.forName("PosTagNamedEntityRecognizer");
 			Constructor<?> constr = cls.getConstructor();
 			namedEntityRecognizer = constr.newInstance();
+			// get the relevant method
 			getGeneSpans = cls.getMethod("getGeneSpans", String.class);
 		} catch (Exception e) {
 			throw new UIMARuntimeException(e);
@@ -37,14 +39,17 @@ public class BaselineAnnotator extends JCasAnnotator_ImplBase {
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
 		try {
+			// call the method on the created instance to get all detected
 			@SuppressWarnings("unchecked")
 			Map<Integer, Integer> res = (Map<Integer, Integer>)getGeneSpans.invoke(namedEntityRecognizer, aJCas.getSofaDataString());
 			String text = aJCas.getSofaDataString();
+			// iterate through found mentions
 			for(Map.Entry<Integer, Integer> entry : res.entrySet())
 			{
 				// Use offsets with only non white space
 				int begin = text.substring(0, entry.getKey()).replaceAll("\\s", "").length();
 				int end = -1+text.substring(0, entry.getValue()).replaceAll("\\s", "").length();
+				// add the mention
 				GeneMention gen = new GeneMention(aJCas, begin, end);
 				gen.setMentionText(text.substring(entry.getKey(), entry.getValue()));
 				gen.addToIndexes();

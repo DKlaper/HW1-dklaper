@@ -39,11 +39,13 @@ public class CollectionReader extends CollectionReader_ImplBase {
 	public void getNext(CAS newcas) throws IOException, CollectionException {
 		// get the sentence and ID 
 		try {
+			// split key and set SOFA
 			JCas jcas = newcas.getJCas();
 			String[] data = bufread.readLine().split("\\s", 2);
 			jcas.setSofaDataString(data[1], "text");
+			
+			// annotate with sentence ID
 			SentenceMetadata smt;
-		
 			smt = new SentenceMetadata(newcas.getJCas());
 			smt.setSentenceID(data[0]);
 			smt.addToIndexes();
@@ -62,7 +64,7 @@ public class CollectionReader extends CollectionReader_ImplBase {
 
 	@Override
 	public Progress[] getProgress() {
-		return new Progress[0];
+		return new Progress[0]; // cannot say progress, otherwise we have to read whole input into file
 	}
 
 	@Override
