@@ -11,7 +11,7 @@ import org.apache.uima.jcas.cas.TOP;
 
 
 /** The id of the sentence being analyzed
- * Updated by JCasGen Tue Sep 16 11:24:55 EDT 2014
+ * Updated by JCasGen Tue Sep 16 20:58:34 EDT 2014
  * XML source: /usr/data/CMU/791/HW1-dklaper/hw1-dklaper/src/main/resources/typeSystemDescriptor.xml
  * @generated */
 public class SentenceMetadata extends TOP {

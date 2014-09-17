@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>  <annotatorImplementationName>primitiveAE.LingpipePOSTagger</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>lingpipePOSDescriptor</name>
+    <description/>
+    <version>1.0</version>
+    <vendor/>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <typeSystemDescription>
+      <imports>
+        <import name="typeSystemDescriptor"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type>types.Token</type>
+          <feature>types.Token:Wordform</feature>
+          <feature>types.Token:end</feature>
+          <feature>types.Token:begin</feature>
+        </inputs>
+        <outputs>
+          <type>types.Token</type>
+          <feature>types.Token:PartOfSpeech</feature>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <externalResourceDependencies>
+    <externalResourceDependency>
+      <key>POSModel</key>
+      <description>The HMM PoS tagger model for lingpipe</description>
+      <optional>false</optional>
+    </externalResourceDependency>
+  </externalResourceDependencies>
+  <resourceManagerConfiguration>
+    <externalResources>
+      <externalResource>
+        <name>GeniaPoSModel</name>
+        <description>Genia Part of Speech tagger for lingpipe</description>
+        <fileResourceSpecifier>
+          <fileUrl>src/main/resources/models/pos-en-bio-genia.HiddenMarkovModel</fileUrl>
+        </fileResourceSpecifier>
+      </externalResource>
+    </externalResources>
+    <externalResourceBindings>
+      <externalResourceBinding>
+        <key>POSModel</key>
+        <resourceName>GeniaPoSModel</resourceName>
+      </externalResourceBinding>
+    </externalResourceBindings>
+  </resourceManagerConfiguration>
+</analysisEngineDescription>
