@@ -12,7 +12,7 @@ processingUnitThreadCount="1">
 
 <casProcessor deployment="integrated" name="Recognizer" >
 <descriptor>
-<import name="AggregateLingpipeCRF"/>
+<import name="lingpipeNERDescriptor"/>
 </descriptor>
 <filter></filter>
 <errorHandling>
@@ -25,7 +25,7 @@ value="100"/>
 
 <casProcessor deployment="integrated" name="Consumer" >
 <descriptor>
-<import name="evaluationConsumerDescriptor"/>
+<import name="resultConsumerDescriptor"/>
 </descriptor>
 <filter></filter>
 <errorHandling>

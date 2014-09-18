@@ -45,24 +45,16 @@
     <externalResources>
       <externalResource>
         <name>BioCreative</name>
-        <description>biocreative trained model
-</description>
+        <description>biocreative trained model</description>
         <fileResourceSpecifier>
           <fileUrl>src/main/resources/models/NER.BioCreative.crfchain</fileUrl>
-        </fileResourceSpecifier>
-      </externalResource>
-    <externalResource>
-        <name>TestModel</name>
-        <description>test</description>
-        <fileResourceSpecifier>
-          <fileUrl>NER.crfchain</fileUrl>
         </fileResourceSpecifier>
       </externalResource>
     </externalResources>
     <externalResourceBindings>
       <externalResourceBinding>
         <key>ModelFile</key>
-        <resourceName>TestModel</resourceName>
+        <resourceName>BioCreative</resourceName>
       </externalResourceBinding>
     </externalResourceBindings>
   </resourceManagerConfiguration>
