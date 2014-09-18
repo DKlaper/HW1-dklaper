@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.cmu.lti.11791.f14.hw1</groupId>
   <artifactId>hw1-dklaper</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <repositories>
     <repository>
       <id>oaqa</id>
@@ -124,8 +124,8 @@
     </dependency>
   </dependencies>
   <scm>
-  	<connection>scm:git:git@github.com:DKlaper/hw0-dklaper.git</connection>
-  	<developerConnection>scm:git:git@github.com:DKlaper/hw0-dklaper.git</developerConnection>
-    <tag>hw1-dklaper-0.0.1</tag>
+  	<connection>scm:git:git@github.com:DKlaper/hw1-dklaper.git</connection>
+  	<developerConnection>scm:git:git@github.com:DKlaper/hw1-dklaper.git</developerConnection>
+    <tag></tag>
   </scm>
 </project>
