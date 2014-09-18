@@ -13,7 +13,7 @@ import org.apache.uima.util.Progress;
 import types.*;
 
 /**
- * Reads the input files and sets them as SOFA
+ * Reads the input files as given in the assignment and sets them as SOFA
  * 
  */
 public class CollectionReader extends CollectionReader_ImplBase {

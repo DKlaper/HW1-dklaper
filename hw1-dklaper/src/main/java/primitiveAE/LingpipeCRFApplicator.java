@@ -19,7 +19,7 @@ import com.aliasi.tag.Tagging;
 import com.aliasi.util.AbstractExternalizable;
 
 /**
- * Applies custom learned crf model
+ * Applies a custom learned crf model
  *
  */
 public class LingpipeCRFApplicator extends JCasAnnotator_ImplBase {

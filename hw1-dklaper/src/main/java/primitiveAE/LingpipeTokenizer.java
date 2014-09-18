@@ -9,7 +9,7 @@ import com.aliasi.tokenizer.Tokenizer;
 
 import types.*;
 /**
- * A tokenizer from Lingpipe
+ * IndoEuropean Tokenizer from lingpipe for learing and applying custom CRFs
  * 
  */
 public class LingpipeTokenizer extends JCasAnnotator_ImplBase {

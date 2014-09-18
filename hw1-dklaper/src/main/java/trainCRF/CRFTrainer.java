@@ -4,12 +4,14 @@ import java.io.File;
 import java.util.ArrayList;
 
 import org.apache.uima.UIMARuntimeException;
+import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.resource.ResourceInitializationException;
 
 import com.aliasi.crf.ChainCrf;
 import com.aliasi.crf.ChainCrfFeatureExtractor;
@@ -23,12 +25,32 @@ import trainCRF.helpers.*;
 import types.*;
 
 /**
- * Extracts features, makes it a tagging and trains a crf
+ * Extracts features, provides it to Lingpipes ChainCRF learner
+ * Learns the model and writes it to the output file given as parameter
  *
  */
 public class CRFTrainer extends JCasAnnotator_ImplBase {
 
 	private FeatureCorpus corpus = new FeatureCorpus();
+	// SGD parameters for CRF learning
+	private int minEpochs;
+	private int maxEpochs;
+	private double priorWidth; // width of the L1 prior
+	private double initLearningRate; // initial learning rate SGD
+	private double learningBase; // base for exponential annealing (< 1)
+	
+	@Override
+	public void initialize(UimaContext aUimaContext) throws ResourceInitializationException
+	{
+		super.initialize(aUimaContext);
+		// read the Machine Learning parameters
+		minEpochs = (Integer) aUimaContext.getConfigParameterValue("minEpochs");
+		maxEpochs = (Integer) aUimaContext.getConfigParameterValue("maxEpochs");
+		priorWidth = (Float) aUimaContext.getConfigParameterValue("priorWidth");
+		initLearningRate = (Float) aUimaContext.getConfigParameterValue("initLearningRate");
+		learningBase = (Float) aUimaContext.getConfigParameterValue("learningBase");
+		
+	}
 	
 	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
@@ -43,7 +65,7 @@ public class CRFTrainer extends JCasAnnotator_ImplBase {
 		if(lbls.hasNext()){
 			currentlbl = lbls.next();
 		}
-		// Annotates BIOWE system (W = single token, E = end of multi unit token)
+		// Annotates BIOWE system according to mentions (W = single token, E = end of multi unit token)
 		for(Annotation ann : tokidx) // each token needs a label
 		{
 			if(ann.getBegin() < currentlbl.getBegin()) // before next annotation
@@ -115,7 +137,7 @@ public class CRFTrainer extends JCasAnnotator_ImplBase {
 		ChainCrfFeatureExtractor<Feature> featureExtractor = new FeatureExtractor();
 		// train the crf and write it to a model file
 		try {
-			ChainCrf<Feature> res = ChainCrf.estimate(corpus, featureExtractor, true, 1, false, false, RegressionPrior.gaussian(0.5, true), 5, AnnealingSchedule.exponential(0.08, 0.995), 1e-7, 10, 150, Reporters.stdOut().setLevel(LogLevel.DEBUG));
+			ChainCrf<Feature> res = ChainCrf.estimate(corpus, featureExtractor, true, 1, false, false, RegressionPrior.gaussian(priorWidth, false), 3, AnnealingSchedule.exponential(initLearningRate, learningBase), 1e-7, minEpochs, maxEpochs, Reporters.stdOut().setLevel(LogLevel.DEBUG));
 			String filename = (String)getContext().getConfigParameterValue("ModelName");
 			File file = new File(filename);
 			AbstractExternalizable.serializeTo(res, file);

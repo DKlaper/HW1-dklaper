@@ -16,6 +16,10 @@ import com.aliasi.hmm.HiddenMarkovModel;
 import com.aliasi.hmm.HmmDecoder;
 import com.aliasi.tag.Tagging;
 
+/**
+ * Assigns a PoS Tag for custom CRF training and application
+ * 
+ */
 public class LingpipePOSTagger extends JCasAnnotator_ImplBase {
 
 	private HmmDecoder tagger;

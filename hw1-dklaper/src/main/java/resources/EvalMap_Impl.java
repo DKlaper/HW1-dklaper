@@ -14,7 +14,7 @@ import org.apache.uima.resource.SharedResourceObject;
 
 /**
  * 
- * loads the evaluation data
+ * loads the evaluation data and provides it in a convenient format for evaluation
  */
 public class EvalMap_Impl implements SharedResourceObject, EvalMap {
 

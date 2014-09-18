@@ -16,12 +16,77 @@
         <multiValued>false</multiValued>
         <mandatory>true</mandatory>
       </configurationParameter>
+    <configurationParameter>
+        <name>minEpochs</name>
+        <description>Minimum number of training iterations</description>
+        <type>Integer</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>maxEpochs</name>
+        <description>maximum number of training iterations</description>
+        <type>Integer</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>initLearningRate</name>
+        <description>Initial learning rate for Stochastic Gradient Descent</description>
+        <type>Float</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>learningBase</name>
+        <description>Base for the exponential decay of the learning rate (annealing)</description>
+        <type>Float</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>priorWidth</name>
+        <description>Width of the prior</description>
+        <type>Float</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
         <name>ModelName</name>
         <value>
           <string>NER.crfchain</string>
+        </value>
+      </nameValuePair>
+    <nameValuePair>
+        <name>minEpochs</name>
+        <value>
+          <integer>10</integer>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>initLearningRate</name>
+        <value>
+          <float>0.6</float>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>learningBase</name>
+        <value>
+          <float>0.995</float>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>maxEpochs</name>
+        <value>
+          <integer>1000</integer>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>priorWidth</name>
+        <value>
+          <float>0.24</float>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

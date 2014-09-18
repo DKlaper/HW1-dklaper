@@ -10,7 +10,7 @@ import com.aliasi.util.ObjectToDoubleMap;
 
 /**
  * 
- * Generates the actual CRF features from the Feature Object
+ * Generates the rich CRF features from the  simple Feature Object
  */
 public class FeatureExtractor implements ChainCrfFeatureExtractor<Feature>, Serializable {
 

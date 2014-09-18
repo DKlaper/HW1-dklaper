@@ -7,7 +7,7 @@ import com.aliasi.corpus.ObjectHandler;
 import com.aliasi.tag.Tagging;
 
 /**
- * Represent a corpus of features for the CRF training
+ * Represent a corpus of features for the Lingpipe CRF training
  * 
  */
 public class FeatureCorpus extends Corpus<ObjectHandler<Tagging<Feature>>> {

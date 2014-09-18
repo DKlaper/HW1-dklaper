@@ -20,7 +20,7 @@ import types.*;
 
 /**
  * A CollectionReader for the IEXML files from calbc
- * reading the gold standard
+ * reading the gold standard and providing the proper GeneMentions
  */
 public class CalbcReader extends CollectionReader_ImplBase {
 

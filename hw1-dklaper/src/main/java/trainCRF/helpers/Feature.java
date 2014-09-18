@@ -1,7 +1,7 @@
 package trainCRF.helpers;
 
 /**
- * Represent a feature for the CRF
+ * Represent a feature input for the CRF
  * A feature is not just the token but also the PoS 
  *
  */
