@@ -12,7 +12,7 @@ processingUnitThreadCount="1">
 
 <casProcessor deployment="integrated" name="Recognizer" >
 <descriptor>
-<import name="lingpipeNERDescriptor"/>
+<import name="AggregateLingpipeCRF"/>
 </descriptor>
 <filter></filter>
 <errorHandling>

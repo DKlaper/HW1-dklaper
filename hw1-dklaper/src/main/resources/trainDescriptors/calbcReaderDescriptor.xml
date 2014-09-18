@@ -59,7 +59,7 @@
     <externalResourceBindings>
       <externalResourceBinding>
         <key>TrainCorpus</key>
-        <resourceName>JNLPBA</resourceName>
+        <resourceName>BioCreative2</resourceName>
       </externalResourceBinding>
     </externalResourceBindings>
   </resourceManagerConfiguration>

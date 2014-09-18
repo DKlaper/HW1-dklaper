@@ -115,7 +115,7 @@ public class CRFTrainer extends JCasAnnotator_ImplBase {
 		ChainCrfFeatureExtractor<Feature> featureExtractor = new FeatureExtractor();
 		// train the crf and write it to a model file
 		try {
-			ChainCrf<Feature> res = ChainCrf.estimate(corpus, featureExtractor, true, 1, false, true, RegressionPrior.gaussian(4, true), 30, AnnealingSchedule.exponential(0.05, 0.995), 1e-2 /*6*/, 1/*0*/, 10/*2000*/, Reporters.stdOut().setLevel(LogLevel.INFO));
+			ChainCrf<Feature> res = ChainCrf.estimate(corpus, featureExtractor, true, 1, false, false, RegressionPrior.gaussian(0.5, true), 5, AnnealingSchedule.exponential(0.08, 0.995), 1e-7, 10, 150, Reporters.stdOut().setLevel(LogLevel.DEBUG));
 			String filename = (String)getContext().getConfigParameterValue("ModelName");
 			File file = new File(filename);
 			AbstractExternalizable.serializeTo(res, file);

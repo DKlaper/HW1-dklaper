@@ -34,7 +34,7 @@ public class LingpipeTokenizer extends JCasAnnotator_ImplBase {
 			// update token values 
 			token = sent.nextToken();
 			begin = text.substring(0, sent.lastTokenStartPosition()).replaceAll("\\s", "").length();
-			end = text.substring(0, sent.lastTokenEndPosition()).replaceAll("\\s", "").length();
+			end = text.substring(0, sent.lastTokenEndPosition()).replaceAll("\\s", "").length()-1;
 		}
 
 	}

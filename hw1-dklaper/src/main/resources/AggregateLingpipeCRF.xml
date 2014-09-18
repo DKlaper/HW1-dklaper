@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="lingpipeTokenizerDescriptor">
+      <import name="lingpipeTokenizerDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="lingpipePOSDescriptor">
+      <import name="lingpipePOSDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="lingpipeCRFAppDescriptor">
+      <import name="lingpipeCRFAppDescriptor"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>AggregateLingpipeCRF</name>
+    <description/>
+    <version>1.0</version>
+    <vendor/>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>lingpipeTokenizerDescriptor</node>
+        <node>lingpipePOSDescriptor</node>
+        <node>lingpipeCRFAppDescriptor</node>
+      </fixedFlow>
+    </flowConstraints>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type allAnnotatorFeatures="true">types.SentenceMetadata</type>
+        </inputs>
+        <outputs>
+          <type allAnnotatorFeatures="true">types.GeneMention</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>
