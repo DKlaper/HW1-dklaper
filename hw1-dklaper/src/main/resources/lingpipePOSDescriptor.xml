@@ -51,7 +51,7 @@
         <name>GeniaPoSModel</name>
         <description>Genia Part of Speech tagger for lingpipe</description>
         <fileResourceSpecifier>
-          <fileUrl>src/main/resources/models/pos-en-bio-genia.HiddenMarkovModel</fileUrl>
+          <fileUrl>models/pos-en-bio-genia.HiddenMarkovModel</fileUrl>
         </fileResourceSpecifier>
       </externalResource>
     </externalResources>

@@ -45,14 +45,14 @@
         <name>GenetagModel</name>
         <description>The chunker model for lingpipe based on genetag data</description>
         <fileResourceSpecifier>
-          <fileUrl>src/main/resources/models/ne-en-bio-genetag.HmmChunker</fileUrl>
+          <fileUrl>models/ne-en-bio-genetag.HmmChunker</fileUrl>
         </fileResourceSpecifier>
       </externalResource>
       <externalResource>
         <name>GeniaModel</name>
         <description>LingPipe chunker based on Genia model</description>
         <fileResourceSpecifier>
-          <fileUrl>src/main/resources/models/ne-en-bio-genia.TokenShapeChunker</fileUrl>
+          <fileUrl>models/ne-en-bio-genia.TokenShapeChunker</fileUrl>
         </fileResourceSpecifier>
       </externalResource>
     </externalResources>

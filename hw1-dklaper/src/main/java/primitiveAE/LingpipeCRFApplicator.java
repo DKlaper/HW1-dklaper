@@ -54,7 +54,6 @@ public class LingpipeCRFApplicator extends JCasAnnotator_ImplBase {
 		// run sequence through crf
 		Tagging<Feature> tagresult = crf.tag(data);
 		int begin = -1;
-		int realbegin = 0;
 		int i = 0;
 		// recover gene sequences from tagging
 		for(Annotation ann : idx)

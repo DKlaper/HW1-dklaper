@@ -45,14 +45,14 @@
         <name>BioCreative2</name>
         <description>biocreative 2 data</description>
         <fileResourceSpecifier>
-          <fileUrl>src/main/resources/data/bc2.xml</fileUrl>
+          <fileUrl>data/bc2.xml</fileUrl>
         </fileResourceSpecifier>
       </externalResource>
       <externalResource>
         <name>JNLPBA</name>
         <description>JNLPBA-Test set with gene mentions</description>
         <fileResourceSpecifier>
-          <fileUrl>src/main/resources/data/jnlpba.xml</fileUrl>
+          <fileUrl>data/jnlpba.xml</fileUrl>
         </fileResourceSpecifier>
       </externalResource>
     </externalResources>

@@ -44,7 +44,7 @@
         <name>evalData</name>
         <description>the data file with the sample output</description>
         <fileResourceSpecifier>
-          <fileUrl>src/main/resources/data/sample.out</fileUrl>
+          <fileUrl>data/sample.out</fileUrl>
         </fileResourceSpecifier>
         <implementationName>resources.EvalMap_Impl</implementationName>
       </externalResource>
